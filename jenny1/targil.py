@@ -1,0 +1,6 @@
+N=input("please enter your name: ")
+TY=int(input("please enter current year: "))
+age=int(input("please enter your age: "))
+WY=int(input("please enter whet year you want to know: "))
+NA=(WY-TY+age)
+print(f"{N} wiil be {NA} in year {WY}")

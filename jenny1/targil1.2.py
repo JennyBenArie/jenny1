@@ -1,0 +1,5 @@
+N= input("please enter your name: ")
+age= int(input("please enter your age: "))
+TY= int(input("please enter cuurent year: "))
+WY= (TY+100-age)
+print(f"{N} wiil be 100 in year {WY}")
