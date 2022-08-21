@@ -118,46 +118,51 @@
 # print("this is the number!!")
 # ===============================================================
 # targil3.3
-# from random import randint
+from random import randint
 # ran_num=randint(1,9)
 #
 # guess=int(input("guess number between 1-9: "))
 #
 # while ran_num!= guess :
-#     if ran_num<guess:
+#      if ran_num<guess:
 #         print("the number you guessed is bigger than the number")
 #         guess = int(input("guess number between 1-9: "))
-#     elif ran_num>guess:
+#      elif ran_num>guess:
 #         print("the number you guessed is lower than the number")
 #         guess = int(input("guess number between 1-9: "))
 # else: print("this is the currect number!")
+
+
 # ====================================================================
 # targil3.4
 
-# Try=0
-# guess=int(input("choose number between 1-100: "))
-# while 0<=guess<=100:
-#     ran = randint(1, 100)
-#     print("system's guess: ", ran)
-#     system_guess=int(input("if the number is bigger than you number, press 1.\nif the number is lower than your number press 2.\nif the number is your number, press 3."))
-#     if system_guess==1:
-#         Try+=1
-#     elif system_guess==2:
-#         Try += 1
-#     if system_guess==3:
-#         print(f"system currect!, after {Try} times")
-#         break
+Try=0
+int(input("choose number between 1-100: "))
+ran = randint(1, 100)
+print("system's guess: ", ran)
+system_guess=(input("the number is bigger than you number? press h.\nthe number is lower than your number? press l.\nthe number is currect? press c "))
+
+while system_guess!= "c" :
+    if system_guess=="h":
+        ran=randint(1,(ran-1))
+        Try+=1
+    else:
+        system_guess=="l"
+        ran=randint((ran+1),100)
+        Try += 1
+print(f"system currect!, after {Try} times")
+
 # =================================================================================
 # targil 3.5
-num=int(input("enter how many digits will be in the series: " ))
-fn=0
-sn=1
-for i in range(num):
-    if i==0:
-        print(fn)
-        continue
-    print(sn)
-    nn=sn+fn
-    fn=sn
-    sn=nn
-    change
+# num=int(input("enter how many digits will be in the series: " ))
+# fn=0
+# sn=1
+# for i in range(num):
+#     if i==0:
+#         print(fn)
+#         continue
+#     print(sn)
+#     nn=sn+fn
+#     fn=sn
+#     sn=nn
+#     change
