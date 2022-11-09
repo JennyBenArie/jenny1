@@ -42,7 +42,7 @@ class Home_Page:
         self.headphones_category().click()
 
     def shopping_cart(self):
-        return self.driver.find_element(By.ID, "[id='menuCart']")
+        return self.driver.find_element(By.ID, "shoppingCartLink")
 
     def mice_on_cart(self):
         ActionChains(self.driver).move_to_element(self.shopping_cart()).perform()

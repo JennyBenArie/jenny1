@@ -20,3 +20,10 @@ class Category_page:
 
     def mice_on_cart(self):
         ActionChains(self.driver).move_to_element(self.shopping_cart()).perform()
+
+    def home_page_back(self):
+        return self.driver.find_element(By.CSS_SELECTOR, '[translate="HOME"]')
+
+    def click_home_page(self):
+        self.home_page_back()
+
