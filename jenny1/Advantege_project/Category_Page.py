@@ -16,14 +16,17 @@ class Category_page:
         product_list[num].click()
 
     def shopping_cart(self):
-        return self.driver.find_element(By.ID, "[id='menuCart']")
+        return self.driver.find_element(By.ID, "shoppingCartLink")
+
+    def click_shopping_cart(self):
+        self.shopping_cart().click
+
 
     def mice_on_cart(self):
         ActionChains(self.driver).move_to_element(self.shopping_cart()).perform()
 
-    def home_page_back(self):
-        return self.driver.find_element(By.CSS_SELECTOR, '[translate="HOME"]')
+    def shopping_cart_page(self):
+        return self.driver.find_element(By.CSS_SELECTOR, 'a[class="select  ng-binding"]')
 
-    def click_home_page(self):
-        self.home_page_back()
+
 
