@@ -36,6 +36,9 @@ class Product_Page:
         self.quantity().click()
         self.quantity().send_keys(num)
 
+    def icon(self):
+        return self.driver.find_element(By.ID,"menuUserSVGPath")
+
     def home_page_back(self):
         return self.driver.find_element(By.CSS_SELECTOR, '[translate="HOME"]')
 
@@ -52,20 +55,23 @@ class Product_Page:
     def total_prodocts(self):
         return self.driver.find_element(By.CSS_SELECTOR,'[class="roboto-regular ng-binding"]')
 
-    def shopping_cart(self):
-        return self.driver.find_element(By.ID, "shoppingCartLink")
+    def shopping_cart_window(self):
+        return self.driver.find_element(By.ID, "menuCart")
 
-    def click_shopping_cart(self):
-        self.shopping_cart().click()
+    def click_shopping_cart_window(self):
+        self.shopping_cart_window().click()
 
-    def mice_on_cart(self):
-        ActionChains(self.driver).move_to_element(self.shopping_cart()).perform()
+    def mice_on_cart_window(self):
+        ActionChains(self.driver).move_to_element(self.shopping_cart_window()).perform()
 
-    def product_price(self):
-        self.driver.find_element(By.CSS_SELECTOR, 'h2[class="roboto-thin screen768 ng-binding"]')
+    def product_price_cart_window(self, num:int):
+        return self.driver.find_elements(By.CLASS_NAME, "price roboto-regular ng-binding")[num].text
 
-    def sum_price_products(self):
-        self.product_price()*self.quantity()
+
+    def product_quantity_cart_window(self, num:int):
+        return self.driver.find_elements()
 
     def shopping_cart_page(self):
         return self.driver.find_element(By.CSS_SELECTOR, 'a[class="select  ng-binding"]')
+
+

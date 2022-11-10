@@ -21,6 +21,9 @@ class Category_page:
     def click_shopping_cart(self):
         self.shopping_cart().click
 
+    def total_shopping_cart(self):
+        return self.driver.find_element(By.CSS_SELECTOR,)
+
 
     def mice_on_cart(self):
         ActionChains(self.driver).move_to_element(self.shopping_cart()).perform()

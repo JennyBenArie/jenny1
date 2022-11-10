@@ -10,6 +10,7 @@ from Category_Page import Category_page
 from Product_page import Product_Page
 from selenium.webdriver.chrome.service import Service
 from time import sleep
+from Cart_page import Cart_page
 
 class Test_AOS(TestCase):
     def setUp(self):
@@ -19,6 +20,7 @@ class Test_AOS(TestCase):
         self.home_page = Home_Page(self.driver)
         self.category_page = Category_page(self.driver)
         self.product_page = Product_Page(self.driver)
+        self.cart_page = Cart_page(self.driver)
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
 
@@ -70,12 +72,64 @@ class Test_AOS(TestCase):
         self.home_page.click_headphones_category()
         self.category_page.choose_product(2)
         self.product_page.click_add_to_cart()
-        self.product_page.shopping_cart().click()
+        self.product_page.shopping_cart_window().click()
         sleep(2)
         self.assertEqual(self.product_page.shopping_cart_page().text, 'SHOPPING CART')
         sleep(2)
 
-    def test_
+    #targil5
+    def test_total_price(self):
+        self.home_page.click_headphones_category()
+        self.category_page.choose_product(2)
+        self.product_page.click_add_to_cart()
+        self.product_page.click_home_page()
+        self.home_page.click_laptops_category()
+        self.category_page.choose_product(1)
+        self.product_page.click_plus_product()
+        self.product_page.click_add_to_cart()
+        self.product_page.click_home_page()
+        self.home_page.click_mice_category()
+        self.category_page.choose_product(0)
+        self.product_page.click_plus_product()
+        self.product_page.click_plus_product()
+        self.product_page.click_add_to_cart()
+        sleep(3)
+        self.product_page.click_shopping_cart_window()
+        ActionChains(self.driver).move_to_element(self.product_page.icon()).perform()
+        sleep(5)
+        pro1 = self.cart_page.product_price_in_cart(0)
+        pro2 = self.cart_page.product_price_in_cart(1)
+        pro3 = self.cart_page.product_price_in_cart(2)
+        sum_pro = pro3+pro2+pro1
+        sum_pro = round(sum_pro, 2)
+        self.assertEqual(self.cart_page.cart_total_price(), sum_pro)
+        print(f"product 1: {self.cart_page.product_name_cart(0)},quantity: {self.cart_page.product_quantity_in_cart(0)},price: {self.cart_page.product_price_in_cart(0)}")
+        print(f"product 2: {self.cart_page.product_name_cart(1)},quantity: {self.cart_page.product_quantity_in_cart(1)},price: {self.cart_page.product_price_in_cart(1)}")
+        print(f"product 3: {self.cart_page.product_name_cart(2)},quantity: {self.cart_page.product_quantity_in_cart(2)},price: {self.cart_page.product_price_in_cart(2)}")
 
-
+    #targil6
+    def test_change_cart(self):
+        self.home_page.click_mice_category()
+        self.category_page.choose_product(0)
+        self.product_page.click_plus_product()
+        self.product_page.click_plus_product()
+        self.product_page.click_add_to_cart()
+        self.product_page.click_home_page()
+        self.home_page.click_laptops_category()
+        self.category_page.choose_product(1)
+        self.product_page.click_plus_product()
+        self.product_page.click_add_to_cart()
+        self.product_page.click_shopping_cart_window()
+        ActionChains(self.driver).move_to_element(self.product_page.icon()).perform()
+        sleep(5)
+        self.cart_page.click_edit_button(0)
+        self.cart_page.click_minus_product()
+        self.product_page.click_add_to_cart()
+        sleep(5)
+        self.cart_page.click_edit_button(1)
+        self.cart_page.click_plus_button()
+        self.product_page.click_add_to_cart()
+        sleep(5)
+        self.assertEqual(self.cart_page.product_quantity_in_cart(0), 2)
+        self.assertEqual(self.cart_page.product_quantity_in_cart(1), 3)
 
