@@ -1,7 +1,6 @@
 from unittest import TestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
@@ -115,7 +114,7 @@ class Test_AOS(TestCase):
 
     # Targil 4: tests if the shopping cart page is showen after adding products to cart
     def test_shopping_cart_page(self):
-        # choose the third product from the headphones category, add 2 quantities to the cart
+        # choose the third product from headphones category, add 2 quantities to the cart
         self.home_page.click_headphones_category()
         self.category_page.choose_product(2)
         self.product_page.click_add_to_cart()
@@ -129,7 +128,7 @@ class Test_AOS(TestCase):
     # Targil 5: tests if after adding 3 types of products to the cart, the summery in the cart page is correct.
     # printing the products details at the end of the test.
     def test_total_price(self):
-        # choose the third product from the headphones category, add 1 quantity  to the cart
+        # choose the third product from headphones category, add 1 quantity  to the cart
         self.home_page.click_headphones_category()
         self.category_page.choose_product(2)
         self.product_page.click_add_to_cart()
@@ -160,7 +159,7 @@ class Test_AOS(TestCase):
         pro3 = self.cart_page.product_price_in_cart(2)
         # sum up the prices together
         sum_pro = pro3+pro2+pro1
-        # round the number 2 after the point so it can be equal
+        # round the number 2 after the point, so it can be equal
         sum_pro = round(sum_pro, 2)
         # check if the total price is correct
         self.assertEqual(self.cart_page.cart_total_price(), sum_pro)
