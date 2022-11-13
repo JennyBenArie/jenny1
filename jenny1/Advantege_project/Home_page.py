@@ -53,6 +53,23 @@ class Home_Page:
     def special_offer(self):
         return self.driver.find_element(By.CSS_SELECTOR, "article[id='special_offer_items'] h3").text
 
+    def login(self, username:str, password:str):
+        self.driver.find_element(By.NAME, "username").send_keys(username)
+        self.driver.find_element(By.NAME, "password").send_keys(password)
+
+    def click_sign_in(self):
+        self.driver.find_element(By.ID, "sign_in_btnundefined").click()
+
+    def icon_name(self):
+        return self.driver.find_element(By.CSS_SELECTOR, "[class='hi-user containMiniTitle ng-binding']").text
+
+    def icon_no_name(self):
+        return self.driver.find_element(By.CSS_SELECTOR, "[class ='hi-user containMiniTitle ng-binding ng-hide']").text
+
+    def click_sign_out(self):
+        self.driver.find_element(By.CSS_SELECTOR, 'label[class="option roboto-medium ng-scope"][translate="Sign_out"]').click()
+
+
 
 
 

@@ -57,3 +57,6 @@ class Cart_page:
 
     def click_plus_button(self):
         self.plus_button().click()
+
+    def items_number(self):
+        return self.driver.find_element(By.CSS_SELECTOR, '[class="roboto-regular"]').text

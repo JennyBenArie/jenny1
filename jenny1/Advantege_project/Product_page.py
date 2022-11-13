@@ -37,7 +37,7 @@ class Product_Page:
         self.quantity().send_keys(num)
 
     def icon(self):
-        return self.driver.find_element(By.ID,"menuUserSVGPath")
+        return self.driver.find_element(By.ID, "menuUserSVGPath")
 
     def home_page_back(self):
         return self.driver.find_element(By.CSS_SELECTOR, '[translate="HOME"]')

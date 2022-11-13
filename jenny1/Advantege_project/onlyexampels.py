@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
-from Category_Page import Category_page
+# from Category_Page import Category_page
 from Product_page import Product_Page
 
 service_chrome = Service(r"C:\game_cards-master\chromedriver.exe")
@@ -30,7 +30,8 @@ driver.find_element(By.CSS_SELECTOR, '[name="save_to_cart"]').click()
 # driver.find_element(By.CSS_SELECTOR, "[class='miceImg categoryCell']").click()
 # product.choose_product(3)
 # driver.find_element(By.CSS_SELECTOR, '[name="save_to_cart"]').click()
-sleep(5)
+# if sleep(5). is None:
+#
 # pr = driver.find_element(By.CSS_SELECTOR, 'h2[class="roboto-thin screen768 ng-binding"]').text
 #
 # q = driver.find_element(By.CSS_SELECTOR, 'class="ng-valid ng-dirty ng-valid-parse ng-touched"')
