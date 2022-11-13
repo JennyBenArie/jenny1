@@ -20,7 +20,10 @@ class Cart_page:
         tmp = float(tmp)
         return tmp
 
-    def product_quantity_in_cart(self,num:int):
+    def product_quantity(self, num: int):
+        return self.driver.find_elements(By.CSS_SELECTOR, 'div[id="shoppingCart"]>table>tbody>tr>td[class="smollCell quantityMobile"]>label[class="ng-binding"]')[num]
+
+    def product_quantity_in_cart_text(self,num:int):
         q = self.driver.find_elements(By.CSS_SELECTOR, 'div[id="shoppingCart"]>table>tbody>tr>td[class="smollCell quantityMobile"]>label[class="ng-binding"]')[num].text
         q = int(q)
         return q

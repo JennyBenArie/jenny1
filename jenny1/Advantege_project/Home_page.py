@@ -50,6 +50,11 @@ class Home_Page:
     def mice_on_cart(self):
         ActionChains(self.driver).move_to_element(self.shopping_cart()).perform()
 
+    def special_offer(self):
+        return self.driver.find_element(By.CSS_SELECTOR, "article[id='special_offer_items'] h3").text
+
+
+
 
 
 
